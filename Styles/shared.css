@@ -1,0 +1,51 @@
+:root {
+  --primary-red: #ff0000;
+  --primary-blue: #0075ff;
+}
+
+@font-face {
+  font-family: "CherryBombOne";
+  src: url("../Assets/Fonts/CherryBombOne-Regular.ttf") format("truetype");
+}
+
+body {
+  background-color: #e5e5e5;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  background-color: #fff;
+  width: 50%;
+  height: 90vh;
+  padding: 25px;
+  margin: 0 auto;
+}
+
+.basic-btn {
+  display: block;
+  margin: auto;
+  background-color: #fff;
+  padding: 10px 45px;
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 4px 6px 5px 0px #c2c2c2;
+  font-size: 15px;
+  transition: 0.5s;
+}
+
+.basic-btn:hover {
+  background-color: #c2c2c2;
+  box-shadow: unset;
+}
+
+.basic-btn a {
+  color: #000;
+  text-decoration: none;
+}
+
+.xo-text {
+  font-family: "CherryBombOne", Arial, Helvetica, sans-serif;
+}

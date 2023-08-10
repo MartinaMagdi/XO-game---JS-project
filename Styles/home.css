@@ -1,0 +1,17 @@
+@import url("../Styles/shared.css");
+
+.logo {
+  display: block;
+  margin: 50px auto;
+}
+
+.xo-text {
+  text-align: center;
+  font-size: 100px;
+  color: var(--primary-red);
+  margin: 70px 0;
+}
+
+.o-letter {
+  color: var(--primary-blue);
+}
