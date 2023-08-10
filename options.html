@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Styles/shared.css" />
+    <title>X O Game</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="players-container">
+        <div id="player1-options">
+          <label for="player1-name">Player 1 name</label>
+          <input type="text" name="player1-name" id="player1-name" />
+          <label for="player1-color">Player 1 color</label>
+          <select name="player1-color" id="player1-color">
+            <option value="red">red</option>
+            <option value="green">green</option>
+            <option value="yellow">yellow</option>
+            <option value="blue">blue</option>
+            <option value="brown">brown</option>
+            <option value="orange">orange</option>
+            <option value="pink">pink</option>
+            <option value="purple">purple</option>
+          </select>
+        </div>
+        <div id="player2-options">
+          <label for="player2-name">Player 2 name</label>
+          <input type="text" name="player2-name" id="player2-name" />
+          <label for="player2-color">Player 2 color</label>
+          <select name="player2-color" id="player2-color">
+            <option value="red">red</option>
+            <option value="green">green</option>
+            <option value="yellow">yellow</option>
+            <option value="blue">blue</option>
+            <option value="brown">brown</option>
+            <option value="orange">orange</option>
+            <option value="pink">pink</option>
+            <option value="purple">purple</option>
+          </select>
+        </div>
+        <button class="basic-btn" onclick="submitStart()">Start game</button>
+      </div>
+    </div>
+
+    <script src="Libraries/cookieLib.js"></script>
+    <script src="Scripts/options.js"></script>
+  </body>
+</html>
