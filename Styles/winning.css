@@ -1,1 +1,40 @@
 @import url("shared.css");
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.winning::before {
+  content: "";
+  background-image: url(../Assets/Images/winning-bg.gif);
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.basic-btn {
+  margin-bottom: 20px;
+}
+
+.basic-btn:nth-child(2) {
+  background-color: var(--primary-blue);
+  color: #fff;
+  font-weight: bold;
+}
+
+#winning-status {
+  text-align: center;
+  font-size: 60px;
+  margin: 60px 0;
+}
+
+.winner-name {
+  font-weight: bold;
+  color: var(--primary-red);
+}
