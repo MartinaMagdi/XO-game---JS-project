@@ -1,5 +1,43 @@
 @import url("shared.css");
 
 #players-container {
-    display: flex;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+
+#player1-options {
+    width: 250px;
+    height: 600px;
+    background-image: linear-gradient(blue,white);
+    display: inline-block;
+    margin-right: 25px;
+}
+
+#player2-options {
+    width: 250px;
+    height: 600px;
+    background-image: linear-gradient(white,red);
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.basic-btn {
+    margin-top: 50px;
+}
+
+label {
+    display: block;
+    margin-top: 150px;
+    text-shadow: 2px 2px 2px black;
+}
+
+select {
+    width: 100px;
+}
+
+input {
+    font-size: large;
 }
