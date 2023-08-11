@@ -18,5 +18,5 @@ function submitStart(){
     
     setCookie("player1color",player1Color.value);
     setCookie("player2color",player1Color.value);
-    window.location.assign("playing-page.html")
+    window.location.assign("game.html")
 }
