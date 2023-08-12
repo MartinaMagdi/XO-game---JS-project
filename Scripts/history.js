@@ -44,49 +44,49 @@ var gameResult = `
 </div>
 `;
 
-var container = document.getElementsByClassName('container');
-var x=0;
-while (hasCookie('match'+(x+1))) {
-    var div = document.createElement('div');
-    div.innerHTML = gameResult;
-    container[0].appendChild(div);
+var container = document.getElementsByClassName("container");
+var x = 0;
+while (hasCookie("match" + (x + 1))) {
+  var div = document.createElement("div");
+  div.innerHTML = gameResult;
+  container[0].appendChild(div);
 
-    var matchDetails = getCookie('match'+(x+1));
-    var matchArray = matchDetails.split(',');
+  var matchDetails = getCookie("match" + (x + 1));
+  var matchArray = matchDetails.split(",");
 
-    //who is the winner
-    var win =document.getElementsByClassName('win');
-    if (matchArray[2]=='') {
-        win[x].innerHTML = 'Draw';
-    } else {
-        win[x].innerHTML = 'Winner: '+matchArray[2];
+  //who is the winner
+  var win = document.getElementsByClassName("win");
+  if (matchArray[2] == "") {
+    win[x].innerHTML = "Draw";
+  } else {
+    win[x].innerHTML = "Winner: " + matchArray[2];
+  }
+
+  //who is 1p
+  var player1 = document.getElementsByClassName("player1");
+  player1[x].innerHTML = "1P: " + matchArray[0];
+
+  //who is 2p
+  var player2 = document.getElementsByClassName("player2");
+  player2[x].innerHTML = "2P: " + matchArray[1];
+
+  //match table
+  var gameBox = document.getElementsByClassName("game-box");
+  for (var i = 0; i < 9; i++) {
+    if (matchArray[i + 3] != "-") {
+      gameBox[x * 9 + i].innerHTML = matchArray[i + 3];
     }
-    
-    //who is 1p
-    var player1 = document.getElementsByClassName('player1');
-    player1[x].innerHTML = '1P: '+matchArray[0];
+  }
 
-    //who is 2p
-    var player2 = document.getElementsByClassName('player2');
-    player2[x].innerHTML = '2P: '+matchArray[1];
-    
-    //match table
-    var gameBox = document.getElementsByClassName('game-box');
-    for (var i = 0; i < 9; i++) {
-        if (matchArray[i+3] != '-') {
-            gameBox[(x*9)+i].innerHTML = matchArray[i+3];
-        }
-    }
-
-    x++;
+  x++;
 }
 
-var newGame = document.createElement('button');
-newGame.setAttribute('class','basic-btn');
-newGame.setAttribute('onclick','startNewGame()');
-newGame.innerHTML = 'New Game';
+var newGame = document.createElement("button");
+newGame.setAttribute("class", "basic-btn");
+newGame.setAttribute("onclick", "startNewGame()");
+newGame.innerHTML = "New Game";
 container[0].appendChild(newGame);
 
 function startNewGame() {
-    window.location.assign("game.html");
+  window.location.assign("choosing.html");
 }
