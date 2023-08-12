@@ -48,4 +48,6 @@ body {
 
 .xo-text {
   font-family: "CherryBombOne", Arial, Helvetica, sans-serif;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
 }
