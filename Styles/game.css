@@ -1,0 +1,91 @@
+#game-page-title {
+  color: blue;
+  font-size: 36px;
+  font-weight: 600;
+  margin: auto;
+  text-align: center;
+}
+
+#horizontal-line {
+  height: 12px;
+  width: 285px;
+  background-color: red;
+  border-radius: 20px;
+  border-color: red;
+}
+
+.player-box {
+  width: 121px;
+  height: 140px;
+  display: inline-block;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+#players-boxes {
+  margin: auto;
+  width: 285px;
+  height: 177px;
+  display: flex;
+  justify-content: space-between;
+}
+#player-one-box {
+  background-color: #1263ff;
+  margin-right: 10px;
+  flex: auto;
+}
+
+#player-two-box {
+  background-color: #ef5f5f;
+  margin-left: 10px;
+  flex: auto;
+}
+
+#game-board {
+  background-color: green;
+  width: 400px;
+  height: 419px;
+  border-radius: 20px;
+  background-image: linear-gradient(red, blue);
+  margin: auto;
+}
+.game-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 20px;
+  width: 100px;
+  height: 103px;
+}
+
+#game-boxes {
+  width: 309px;
+  height: 361px;
+  position: relative;
+  left: 29px;
+  top: 28px;
+}
+
+#second-box,
+#third-box,
+#fifth-box,
+#sixth-box,
+#eighth-box,
+#ninth-box {
+  margin-left: 15px;
+}
+
+#fourth-box,
+#fifth-box,
+#sixth-box,
+#seventh-box,
+#eighth-box,
+#ninth-box {
+  margin-top: 20px;
+}
+
+.xo-text {
+  margin: 0;
+  font-size: 65px;
+}
