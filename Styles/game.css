@@ -16,10 +16,10 @@
 
 .player-box {
   width: 121px;
-  height: 177px;
+  height: 140px;
   display: inline-block;
   border-radius: 15px;
-  margin-top: 34px;
+  margin-top: 10px;
 }
 
 #players-boxes {
@@ -43,17 +43,19 @@
 
 #game-board {
   background-color: green;
-  width: 344px;
+  width: 400px;
   height: 419px;
   border-radius: 20px;
   background-image: linear-gradient(red, blue);
   margin: auto;
-  margin-top: 100px;
 }
 .game-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: white;
   border-radius: 20px;
-  width: 93px;
+  width: 100px;
   height: 103px;
 }
 
@@ -61,8 +63,8 @@
   width: 309px;
   height: 361px;
   position: relative;
-  left: 17px;
-  top: 22px;
+  left: 29px;
+  top: 28px;
 }
 
 #second-box,
@@ -71,7 +73,7 @@
 #sixth-box,
 #eighth-box,
 #ninth-box {
-  margin-left: 9px;
+  margin-left: 15px;
 }
 
 #fourth-box,
@@ -81,4 +83,9 @@
 #eighth-box,
 #ninth-box {
   margin-top: 20px;
+}
+
+.xo-text {
+  margin: 0;
+  font-size: 65px;
 }
