@@ -7,6 +7,11 @@ var player2Name = getCookie("player2Name");
 var player1Color = getCookie("player1color");
 var player2Color = getCookie("player2color");
 
+var winner = '';
+var winnningLine = new Array(3);
+var cookieManipulator = 1;
+var matchArray = [player1Name, player2Name, winner, player1Color, player2Color];
+
 setPlayersNamesAndColorsInitial();
 
 function play(event) {
@@ -18,13 +23,28 @@ function play(event) {
   clickedCellElement.innerHTML = currentPlayer;
   clickedCellElement.disabled = true;
 
-  currentPlayer === "X" ? (currentPlayer = "O") : (currentPlayer = "X");
-
   // If there is a winner
   if (checkWinByRows() || checkWinByCols() || checkWinDiagonal()) {
-    // write your code here when there is a winner
-    console.log("winner");
+    if (currentPlayer == 'X') {
+      winner = player1Name;
+    } else {
+      winner = player2Name;
+    }
+
+    matchArray[2]= winner;
+    // disable all cells
+    for (var i = 0; i < allCellsElement.length; i++) {
+      allCellsElement[i].disabled = true;
+    }
+    setTimeout(goToWinnning,3000);
   }
+  else {
+    if (isDraw()) {
+      setTimeout(goToWinnning,1000);
+    }
+  }
+  setCookie('winner',winner);
+  currentPlayer === "X" ? (currentPlayer = "O") : (currentPlayer = "X");
 }
 
 function checkWinByRows() {
@@ -80,4 +100,36 @@ function setPlayersNamesAndColorsInitial() {
 
   xElement.style.color = player1Color;
   oElement.style.color = player2Color;
+}
+
+
+// check for draw
+function isDraw (){
+  for (var i = 0; i < allCellsElement.length; i++) {
+    if (allCellsElement[i].innerHTML == '') {
+      return false;
+    }
+  }
+  return true;
+}
+
+function goToWinnning() {
+  var expire = new Date();
+  expire.setDate(expire.getDate()+1);
+  expire.setHours(0,0,0);
+  for (var i = 0; i < allCellsElement.length; i++) {
+    var temp = allCellsElement[i].innerHTML;
+    matchArray.push(temp);
+  }
+
+  for (var i = 0; i < winnningLine.length; i++) {
+    var temp = winnningLine[i];
+    matchArray.push(temp);
+  }
+
+  while (hasCookie('match'+cookieManipulator)) {
+    cookieManipulator++;
+  }
+  setCookie('match'+cookieManipulator,matchArray,expire);
+  window.location.assign('winning.html');
 }
