@@ -1,3 +1,19 @@
+// matchArray is array of 14 values
+// matchArray[0] -> player1 name
+// matchArray[1] -> player2 name
+// matchArray[2] -> winner name
+// matchArray[3] -> player1 color
+// matchArray[4] -> player2 color
+// matchArray[5] -> game cell 1
+// matchArray[6] -> game cell 2
+// matchArray[7] -> game cell 3
+// matchArray[8] -> game cell 4
+// matchArray[9] -> game cell 5
+// matchArray[10] -> game cell 6
+// matchArray[11] -> game cell 7
+// matchArray[12] -> game cell 8
+// matchArray[13] -> game cell 9
+
 var gameResult = `
 <div class="match-result">
     <p class="win"></p>
@@ -8,34 +24,34 @@ var gameResult = `
       <div id="game-boxes">
         <table>
           <tr>
-            <td><div class="game-box" id="first-box"></div></td>
+            <td><div class="game-box xo-text" id="first-box"></div></td>
             <td>
-              <div class="game-box" id="second-box"></div>
+              <div class="game-box xo-text" id="second-box"></div>
             </td>
             <td>
-                <div class="game-box" id="third-box"></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-                <div class="game-box" id="fourth-box"></div>
-            </td>
-            <td>
-              <div class="game-box" id="fifth-box"></div>
-            </td>
-            <td>
-              <div class="game-box" id="sixth-box"></div>
+                <div class="game-box xo-text" id="third-box"></div>
             </td>
           </tr>
           <tr>
             <td>
-              <div class="game-box" id="seventh-box"></div>
+                <div class="game-box xo-text" id="fourth-box"></div>
             </td>
             <td>
-              <div class="game-box" id="eighth-box"></div>
+              <div class="game-box xo-text" id="fifth-box"></div>
             </td>
             <td>
-              <div class="game-box" id="ninth-box"></div>
+              <div class="game-box xo-text" id="sixth-box"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="game-box xo-text" id="seventh-box"></div>
+            </td>
+            <td>
+              <div class="game-box xo-text" id="eighth-box"></div>
+            </td>
+            <td>
+              <div class="game-box xo-text" id="ninth-box"></div>
             </td>
           </tr>
         </table>
@@ -64,17 +80,24 @@ while (hasCookie("match" + (x + 1))) {
 
   //who is 1p
   var player1 = document.getElementsByClassName("player1");
+  player1[x].style.color = matchArray[3];
   player1[x].innerHTML = "1P: " + matchArray[0];
 
   //who is 2p
   var player2 = document.getElementsByClassName("player2");
+  player2[x].style.color = matchArray[4];
   player2[x].innerHTML = "2P: " + matchArray[1];
 
   //match table
   var gameBox = document.getElementsByClassName("game-box");
   for (var i = 0; i < 9; i++) {
-    if (matchArray[i + 3] != "-") {
-      gameBox[x * 9 + i].innerHTML = matchArray[i + 3];
+    if (matchArray[i + 5] == "X") {
+      gameBox[(x * 9 )+ i].style.color = matchArray[3];
+      gameBox[(x * 9 )+ i].innerHTML = matchArray[i + 5];
+    }
+    else if (matchArray[i + 5] == "O") {
+      gameBox[(x * 9 )+ i].style.color = matchArray[4];
+      gameBox[(x * 9 )+ i].innerHTML = matchArray[i + 5];
     }
   }
 

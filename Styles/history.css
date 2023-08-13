@@ -32,7 +32,7 @@
 .win {
     font-size: 30px;
     font-weight: bold;
-    color: green;
+    color: navy;
 }
 
 .player1 {
@@ -91,3 +91,8 @@
 #ninth-box {
     margin-top: 20px;
 }
+
+.xo-text {
+    margin: 0;
+    font-size: 65px;
+  }
