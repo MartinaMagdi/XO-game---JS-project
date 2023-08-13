@@ -36,6 +36,8 @@ function play(event) {
       winner = player2Name;
     }
 
+    setCookie("winner", winner);
+
     matchArray[2] = winner;
     // disable all cells
     for (var i = 0; i < allCellsElement.length; i++) {
