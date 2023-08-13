@@ -1,4 +1,4 @@
-// matchArray is array of 14 values
+// matchArray is array of 17 values
 // matchArray[0] -> player1 name
 // matchArray[1] -> player2 name
 // matchArray[2] -> winner name
@@ -13,6 +13,9 @@
 // matchArray[11] -> game cell 7
 // matchArray[12] -> game cell 8
 // matchArray[13] -> game cell 9
+// matchArray[14] -> 1st element in winningLine
+// matchArray[15] -> 2nd element in winningLine
+// matchArray[16] -> 3rd element in winningLine
 
 var gameResult = `
 <div class="match-result">
@@ -98,6 +101,14 @@ while (hasCookie("match" + (x + 1))) {
     else if (matchArray[i + 5] == "O") {
       gameBox[(x * 9 )+ i].style.color = matchArray[4];
       gameBox[(x * 9 )+ i].innerHTML = matchArray[i + 5];
+    }
+  }
+
+  // winning line
+  for (var i = 14; i < 17; i++) {
+    if (matchArray[i] != '') {
+      var temp = parseInt(matchArray[i]);
+      gameBox[(x * 9)+temp].style.backgroundColor = 'black';
     }
   }
 
