@@ -8,6 +8,7 @@ var player1Color = getCookie("player1color");
 var player2Color = getCookie("player2color");
 
 var winner = '';
+setCookie('winner',winner);
 var winnningLine = new Array(3);
 var cookieManipulator = 1;
 var matchArray = [player1Name, player2Name, winner, player1Color, player2Color];
@@ -43,7 +44,7 @@ function play(event) {
       setTimeout(goToWinnning,1000);
     }
   }
-  setCookie('winner',winner);
+  
   currentPlayer === "X" ? (currentPlayer = "O") : (currentPlayer = "X");
 }
 
