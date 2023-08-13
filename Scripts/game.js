@@ -9,7 +9,7 @@ var player2Color = getCookie("player2color");
 
 var winner = '';
 setCookie('winner',winner);
-var winnningLine = new Array(3);
+var winningLine = new Array(3);
 var cookieManipulator = 1;
 var matchArray = [player1Name, player2Name, winner, player1Color, player2Color];
 
@@ -37,11 +37,11 @@ function play(event) {
     for (var i = 0; i < allCellsElement.length; i++) {
       allCellsElement[i].disabled = true;
     }
-    setTimeout(goToWinnning,3000);
+    setTimeout(goToWinning,3000);
   }
   else {
     if (isDraw()) {
-      setTimeout(goToWinnning,1000);
+      setTimeout(goToWinning,1000);
     }
   }
   
@@ -114,7 +114,7 @@ function isDraw (){
   return true;
 }
 
-function goToWinnning() {
+function goToWinning() {
   var expire = new Date();
   expire.setDate(expire.getDate()+1);
   expire.setHours(0,0,0);
@@ -123,8 +123,8 @@ function goToWinnning() {
     matchArray.push(temp);
   }
 
-  for (var i = 0; i < winnningLine.length; i++) {
-    var temp = winnningLine[i];
+  for (var i = 0; i < winningLine.length; i++) {
+    var temp = winningLine[i];
     matchArray.push(temp);
   }
 
