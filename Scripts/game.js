@@ -7,8 +7,8 @@ var player2Name = getCookie("player2Name");
 var player1Color = getCookie("player1color");
 var player2Color = getCookie("player2color");
 
-var winner = '';
-setCookie('winner',winner);
+var winner = "";
+setCookie("winner", winner);
 var winnningLine = new Array(3);
 var cookieManipulator = 1;
 var matchArray = [player1Name, player2Name, winner, player1Color, player2Color];
@@ -26,38 +26,112 @@ function play(event) {
 
   // If there is a winner
   if (checkWinByRows() || checkWinByCols() || checkWinDiagonal()) {
-    if (currentPlayer == 'X') {
+    for (let i = 0; i < winnningLine.length; i++) {
+      allCellsElement[winnningLine[i]].style.backgroundColor = "black";
+    }
+
+    if (currentPlayer == "X") {
       winner = player1Name;
     } else {
       winner = player2Name;
     }
 
-    matchArray[2]= winner;
+    matchArray[2] = winner;
     // disable all cells
     for (var i = 0; i < allCellsElement.length; i++) {
       allCellsElement[i].disabled = true;
     }
-    setTimeout(goToWinnning,3000);
-  }
-  else {
+    setTimeout(goToWinnning, 3000);
+  } else {
     if (isDraw()) {
-      setTimeout(goToWinnning,1000);
+      setTimeout(goToWinnning, 1000);
     }
   }
-  
+
   currentPlayer === "X" ? (currentPlayer = "O") : (currentPlayer = "X");
 }
 
 function checkWinByRows() {
-  // Write your conditions here and return true or false
-  return false;
+  if (checkWinByRowsByValue("X") || checkWinByRowsByValue("O")) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function checkWinByRowsByValue(value) {
+  if (
+    allCellsElement[0].innerHTML === value &&
+    allCellsElement[1].innerHTML === value &&
+    allCellsElement[2].innerHTML === value
+  ) {
+    winnningLine[0] = 0;
+    winnningLine[1] = 1;
+    winnningLine[2] = 2;
+
+    return true;
+  } else if (
+    allCellsElement[3].innerHTML === value &&
+    allCellsElement[4].innerHTML === value &&
+    allCellsElement[5].innerHTML === value
+  ) {
+    winnningLine[0] = 3;
+    winnningLine[1] = 4;
+    winnningLine[2] = 5;
+    return true;
+  } else if (
+    allCellsElement[6].innerHTML === value &&
+    allCellsElement[7].innerHTML === value &&
+    allCellsElement[8].innerHTML === value
+  ) {
+    winnningLine[0] = 6;
+    winnningLine[1] = 7;
+    winnningLine[2] = 8;
+  } else {
+    return false;
+  }
 }
 
 function checkWinByCols() {
-  // Write your conditions here and return true or false
-  return false;
+  if (checkWinByColsByValue("X") || checkWinByColsByValue("O")) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
+function checkWinByColsByValue(value) {
+  if (
+    allCellsElement[0].innerHTML === value &&
+    allCellsElement[3].innerHTML === value &&
+    allCellsElement[6].innerHTML === value
+  ) {
+    winnningLine[0] = 0;
+    winnningLine[1] = 3;
+    winnningLine[2] = 6;
+
+    return true;
+  } else if (
+    allCellsElement[1].innerHTML === value &&
+    allCellsElement[4].innerHTML === value &&
+    allCellsElement[7].innerHTML === value
+  ) {
+    winnningLine[0] = 1;
+    winnningLine[1] = 4;
+    winnningLine[2] = 7;
+    return true;
+  } else if (
+    allCellsElement[2].innerHTML === value &&
+    allCellsElement[5].innerHTML === value &&
+    allCellsElement[8].innerHTML === value
+  ) {
+    winnningLine[0] = 2;
+    winnningLine[1] = 5;
+    winnningLine[2] = 8;
+  } else {
+    return false;
+  }
+}
 function checkWinDiagonal() {
   if (checkWinDiagonalByValue("X") || checkWinDiagonalByValue("O")) {
     return true;
@@ -68,13 +142,23 @@ function checkWinDiagonal() {
 
 function checkWinDiagonalByValue(value) {
   if (
-    (allCellsElement[0].innerHTML === value &&
-      allCellsElement[4].innerHTML === value &&
-      allCellsElement[8].innerHTML === value) ||
-    (allCellsElement[2].innerHTML === value &&
-      allCellsElement[4].innerHTML === value &&
-      allCellsElement[6].innerHTML === value)
+    allCellsElement[0].innerHTML === value &&
+    allCellsElement[4].innerHTML === value &&
+    allCellsElement[8].innerHTML === value
   ) {
+    winnningLine[0] = 0;
+    winnningLine[1] = 4;
+    winnningLine[2] = 8;
+
+    return true;
+  } else if (
+    allCellsElement[2].innerHTML === value &&
+    allCellsElement[4].innerHTML === value &&
+    allCellsElement[6].innerHTML === value
+  ) {
+    winnningLine[0] = 2;
+    winnningLine[1] = 4;
+    winnningLine[2] = 6;
     return true;
   } else {
     return false;
@@ -103,11 +187,10 @@ function setPlayersNamesAndColorsInitial() {
   oElement.style.color = player2Color;
 }
 
-
 // check for draw
-function isDraw (){
+function isDraw() {
   for (var i = 0; i < allCellsElement.length; i++) {
-    if (allCellsElement[i].innerHTML == '') {
+    if (allCellsElement[i].innerHTML == "") {
       return false;
     }
   }
@@ -116,8 +199,8 @@ function isDraw (){
 
 function goToWinnning() {
   var expire = new Date();
-  expire.setDate(expire.getDate()+1);
-  expire.setHours(0,0,0);
+  expire.setDate(expire.getDate() + 1);
+  expire.setHours(0, 0, 0);
   for (var i = 0; i < allCellsElement.length; i++) {
     var temp = allCellsElement[i].innerHTML;
     matchArray.push(temp);
@@ -128,9 +211,9 @@ function goToWinnning() {
     matchArray.push(temp);
   }
 
-  while (hasCookie('match'+cookieManipulator)) {
+  while (hasCookie("match" + cookieManipulator)) {
     cookieManipulator++;
   }
-  setCookie('match'+cookieManipulator,matchArray,expire);
-  window.location.assign('winning.html');
+  setCookie("match" + cookieManipulator, matchArray, expire);
+  window.location.assign("winning.html");
 }
