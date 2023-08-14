@@ -1,5 +1,5 @@
 #game-page-title {
-  color: blue;
+  color: #3cb371;
   font-size: 36px;
   font-weight: 600;
   margin: auto;
@@ -9,14 +9,14 @@
 #horizontal-line {
   height: 12px;
   width: 285px;
-  background-color: red;
+  background-color: rgb(223, 223, 223);
   border-radius: 20px;
-  border-color: red;
+  border-color: whitesmoke;
 }
 
 .player-box {
   width: 121px;
-  height: 120px;
+  height: 140px;
   display: inline-block;
   border-radius: 15px;
   margin-top: 10px;
@@ -29,24 +29,25 @@
   justify-content: space-between;
 }
 #player-one-box {
-  background-color: #1263ff;
+  background-color: #3cb372e5;
   margin-right: 10px;
   flex: auto;
 }
 
 #player-two-box {
-  background-color: #ef5f5f;
+  background-color: rgba(238, 153, 49, 0.897);
   margin-left: 10px;
   flex: auto;
 }
 
 #game-board {
-  background-color: green;
+  background-color: rgb(223, 223, 223);
   width: 400px;
   height: 419px;
   border-radius: 20px;
-  background-image: linear-gradient(red, blue);
+  /* background-image: linear-gradient(red, blue); */
   margin: 30px auto 0;
+  box-shadow: 5px 5px 10px grey;
 }
 .game-box {
   display: flex;
@@ -58,6 +59,7 @@
   height: 103px;
   cursor: pointer;
   border: none;
+  box-shadow: 3px 3px 10px grey;
 }
 
 #game-boxes {
@@ -88,20 +90,19 @@
 
 .xo-text {
   margin: 0;
-  font-size: 65px;
+  font-size: 90px;
 }
 
 .player-name {
   color: #fff;
   display: block;
   text-align: center;
-  margin: 5px;
   font-size: 20px;
 }
 
 .xo-value {
   font-family: "CherryBombOne", Arial, Helvetica, sans-serif;
-  font-size: 40px;
+  font-size: 80px;
   display: block;
   text-align: center;
   -webkit-text-stroke-width: 1px;

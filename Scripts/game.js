@@ -27,7 +27,7 @@ function play(event) {
   // If there is a winner
   if (checkWinByRows() || checkWinByCols() || checkWinDiagonal()) {
     for (let i = 0; i < winningLine.length; i++) {
-      allCellsElement[winningLine[i]].style.backgroundColor = "black";
+      allCellsElement[winningLine[i]].style.backgroundColor = "#ec4a4f";
     }
 
     if (currentPlayer == "X") {
