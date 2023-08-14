@@ -1,5 +1,5 @@
 #game-page-title {
-  color: #3cb371;
+  color: #a30c32;
   font-size: 36px;
   font-weight: 600;
   margin: auto;
@@ -9,7 +9,7 @@
 #horizontal-line {
   height: 12px;
   width: 285px;
-  background-color: rgb(223, 223, 223);
+  background-color: #a30c32;
   border-radius: 20px;
   border-color: whitesmoke;
 }
@@ -29,24 +29,24 @@
   justify-content: space-between;
 }
 #player-one-box {
-  background-color: #3cb372e5;
+  background-color: #408ec6;
   margin-right: 10px;
   flex: auto;
 }
 
 #player-two-box {
-  background-color: rgba(238, 153, 49, 0.897);
+  background-color: #1e2761;
   margin-left: 10px;
   flex: auto;
 }
 
 #game-board {
-  background-color: rgb(223, 223, 223);
+  background-color: #a30c32;
   width: 400px;
   height: 419px;
   border-radius: 20px;
   /* background-image: linear-gradient(red, blue); */
-  margin: 30px auto 0;
+  margin: 100px auto 0;
   box-shadow: 5px 5px 10px grey;
 }
 .game-box {
@@ -98,13 +98,14 @@
   display: block;
   text-align: center;
   font-size: 20px;
+  margin-top: 5px;
 }
 
 .xo-value {
   font-family: "CherryBombOne", Arial, Helvetica, sans-serif;
-  font-size: 80px;
+  font-size: 60px;
   display: block;
   text-align: center;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-color: #000;
 }

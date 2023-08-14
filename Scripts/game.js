@@ -27,7 +27,7 @@ function play(event) {
   // If there is a winner
   if (checkWinByRows() || checkWinByCols() || checkWinDiagonal()) {
     for (let i = 0; i < winningLine.length; i++) {
-      allCellsElement[winningLine[i]].style.backgroundColor = "#ec4a4f";
+      allCellsElement[winningLine[i]].style.backgroundColor = "#93F343";
     }
 
     if (currentPlayer == "X") {
@@ -43,7 +43,7 @@ function play(event) {
     for (var i = 0; i < allCellsElement.length; i++) {
       allCellsElement[i].disabled = true;
     }
-    setTimeout(goToWinning, 3000);
+    setTimeout(goToWinning, 1500);
   } else {
     if (isDraw()) {
       setTimeout(goToWinning, 1000);

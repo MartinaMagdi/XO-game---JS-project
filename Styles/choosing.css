@@ -10,18 +10,17 @@
 #player1-options {
   width: 250px;
   height: 250px;
-  background-color: green;
+  background-color: #408ec6;
   display: inline-block;
-  margin-right: 25px;
+  margin-right: 50px;
   border-radius: 20px;
 }
 
 #player2-options {
   width: 250px;
   height: 250px;
-  background-color: green;
+  background-color: #1e2761;
   display: inline-block;
-  margin-right: 25px;
   border-radius: 20px;
   box-shadow: 10px 10px 3px;
 }
@@ -41,6 +40,7 @@ select {
   height: 25px;
   border-radius: 5px;
   margin-top: 5px;
+  font-size: 18px;
 }
 
 input {
@@ -48,4 +48,14 @@ input {
   font-size: large;
   border-radius: 5px;
   width: 180px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.basic-btn {
+  margin-top: 60px;
 }

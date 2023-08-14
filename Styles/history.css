@@ -1,98 +1,50 @@
-@import url('shared.css');
+@import url("shared.css");
 
 .basic-btn {
-    margin: 50px auto;
+  margin: 50px auto;
 }
 
 .container {
-    overflow: auto;
+  overflow: auto;
 }
 
 #history-page-title {
-    color: blue;
-    font-size: 36px;
-    font-weight: 600;
-    margin: auto;
-    text-align: center;
+  color: blue;
+  font-size: 36px;
+  font-weight: 600;
+  margin: auto;
+  text-align: center;
 }
 
 #horizontal-line {
-    height: 12px;
-    width: 285px;
-    background-color: red;
-    border-radius: 20px;
-    border-color: red;
+  height: 12px;
+  width: 285px;
+  background-color: red;
+  border-radius: 20px;
+  border-color: red;
 }
 
 .match-result {
-    text-align: center;
-    margin-top: 100px;
+  text-align: center;
+  margin-top: 100px;
 }
 
 .win {
-    font-size: 30px;
-    font-weight: bold;
-    color: navy;
+  font-size: 30px;
+  font-weight: bold;
+  color: navy;
 }
 
 .player1 {
-    font-size: larger;
-    font-weight: bold;
-    color: red;
-    margin: 0 100px;
+  font-size: larger;
+  font-weight: bold;
+  color: red;
+  margin: 0 100px;
 }
 
 .player2 {
-    font-size: larger;
-    font-weight: bold;
-    color: blue;
-    margin: 0 100px;
+  font-size: larger;
+  font-weight: bold;
+  color: blue;
+  margin: 0 100px;
 }
-
-#game-board {
-    background-color: green;
-    width: 344px;
-    height: 419px;
-    border-radius: 20px;
-    background-image: linear-gradient(red, blue);
-    margin: auto;
-    margin-top: 50px;
-}
-
-.game-box {
-    background-color: white;
-    border-radius: 20px;
-    width: 93px;
-    height: 103px;
-}
-  
-#game-boxes {
-    width: 309px;
-    height: 361px;
-    position: relative;
-    left: 17px;
-    top: 22px;
-}
-  
-#second-box,
-#third-box,
-#fifth-box,
-#sixth-box,
-#eighth-box,
-#ninth-box {
-    margin-left: 9px;
-}
-  
-#fourth-box,
-#fifth-box,
-#sixth-box,
-#seventh-box,
-#eighth-box,
-#ninth-box {
-    margin-top: 20px;
-}
-
-.xo-text {
-    margin: 0;
-    font-size: 65px;
-  }

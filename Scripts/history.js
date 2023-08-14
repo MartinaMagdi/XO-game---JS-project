@@ -24,42 +24,71 @@ var gameResult = `
     <span class="player2"></span>
     <br />
     <div id="game-board">
-      <div id="game-boxes">
-        <table>
-          <tr>
-            <td><div class="game-box xo-text" id="first-box"></div></td>
-            <td>
-              <div class="game-box xo-text" id="second-box"></div>
-            </td>
-            <td>
-                <div class="game-box xo-text" id="third-box"></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-                <div class="game-box xo-text" id="fourth-box"></div>
-            </td>
-            <td>
-              <div class="game-box xo-text" id="fifth-box"></div>
-            </td>
-            <td>
-              <div class="game-box xo-text" id="sixth-box"></div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="game-box xo-text" id="seventh-box"></div>
-            </td>
-            <td>
-              <div class="game-box xo-text" id="eighth-box"></div>
-            </td>
-            <td>
-              <div class="game-box xo-text" id="ninth-box"></div>
-            </td>
-          </tr>
-        </table>
-      </div>
+    <div id="game-boxes">
+      <table>
+        <tr>
+          <td>
+            <button
+              class="game-box xo-text"
+              id="first-box"
+            ></button>
+          </td>
+          <td>
+            <button
+              class="game-box xo-text"
+              id="second-box"
+            ></button>
+          </td>
+          <td>
+            <button
+              class="game-box xo-text"
+              id="third-box"
+            ></button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button
+              class="game-box xo-text"
+              id="fourth-box"
+            ></button>
+          </td>
+          <td>
+            <button
+              class="game-box xo-text"
+              id="fifth-box"
+            ></button>
+          </td>
+          <td>
+            <button
+              class="game-box xo-text"
+              id="sixth-box"
+            ></button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button
+              class="game-box xo-text"
+              id="seventh-box"
+             ></button>
+          </td>
+          <td>
+            <button
+              class="game-box xo-text"
+              id="eighth-box"
+             ></button>
+          </td>
+          <td>
+            <button
+              class="game-box xo-text"
+              id="ninth-box"
+             ></button>
+          </td>
+        </tr>
+      </table>
     </div>
+  </div>
 </div>
 `;
 
@@ -67,14 +96,13 @@ var container = document.getElementsByClassName("container");
 
 // No. of matches
 var records = 1;
-while (hasCookie('match'+records)) {
+while (hasCookie("match" + records)) {
   records++;
 }
 records--;
- var iterations = records;
+var iterations = records;
 
 for (var i = 0; i < iterations; i++) {
-
   var div = document.createElement("div");
   div.innerHTML = gameResult;
   container[0].appendChild(div);
@@ -104,26 +132,25 @@ for (var i = 0; i < iterations; i++) {
   var gameBox = document.getElementsByClassName("game-box");
   for (var j = 0; j < 9; j++) {
     if (matchArray[j + 5] == "X") {
-      gameBox[(i * 9 )+ j].style.color = matchArray[3];
-      gameBox[(i * 9 )+ j].innerHTML = matchArray[j + 5];
-    }
-    else if (matchArray[j + 5] == "O") {
-      gameBox[(i * 9 )+ j].style.color = matchArray[4];
-      gameBox[(i * 9 )+ j].innerHTML = matchArray[j + 5];
+      gameBox[i * 9 + j].style.color = matchArray[3];
+      gameBox[i * 9 + j].innerHTML = matchArray[j + 5];
+    } else if (matchArray[j + 5] == "O") {
+      gameBox[i * 9 + j].style.color = matchArray[4];
+      gameBox[i * 9 + j].innerHTML = matchArray[j + 5];
     }
   }
 
   // winning line
   for (var j = 14; j < 17; j++) {
-    if (matchArray[j] != '') {
+    if (matchArray[j] != "") {
       var temp = parseInt(matchArray[j]);
-      gameBox[(i * 9)+temp].style.backgroundColor = 'black';
+      gameBox[i * 9 + temp].style.backgroundColor = "#93F343";
     }
   }
 
-  var endOfRecord = document.createElement('hr');
-  endOfRecord.style.marginTop = '100px';
-  endOfRecord.style.width = '450px';
+  var endOfRecord = document.createElement("hr");
+  endOfRecord.style.marginTop = "100px";
+  endOfRecord.style.width = "450px";
   container[0].appendChild(endOfRecord);
 
   records--;
