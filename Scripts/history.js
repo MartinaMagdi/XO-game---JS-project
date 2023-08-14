@@ -163,5 +163,15 @@ newGame.innerHTML = "New Game";
 container[0].appendChild(newGame);
 
 function startNewGame() {
+  window.location.assign("game.html");
+}
+
+var newGame = document.createElement("button");
+newGame.setAttribute("class", "basic-btn");
+newGame.setAttribute("onclick", "choosingAgain()");
+newGame.innerHTML = "Choose again";
+container[0].appendChild(newGame);
+
+function choosingAgain() {
   window.location.assign("choosing.html");
 }
