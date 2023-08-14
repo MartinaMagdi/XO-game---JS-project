@@ -88,6 +88,7 @@ function checkWinByRowsByValue(value) {
     winningLine[0] = 6;
     winningLine[1] = 7;
     winningLine[2] = 8;
+    return true;
   } else {
     return false;
   }
@@ -129,6 +130,7 @@ function checkWinByColsByValue(value) {
     winningLine[0] = 2;
     winningLine[1] = 5;
     winningLine[2] = 8;
+    return true;
   } else {
     return false;
   }
