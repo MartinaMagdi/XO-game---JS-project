@@ -64,55 +64,69 @@ var gameResult = `
 `;
 
 var container = document.getElementsByClassName("container");
-var x = 0;
-while (hasCookie("match" + (x + 1))) {
+
+// No. of matches
+var records = 1;
+while (hasCookie('match'+records)) {
+  records++;
+}
+records--;
+ var iterations = records;
+
+for (var i = 0; i < iterations; i++) {
+
   var div = document.createElement("div");
   div.innerHTML = gameResult;
   container[0].appendChild(div);
 
-  var matchDetails = getCookie("match" + (x + 1));
+  var matchDetails = getCookie("match" + records);
   var matchArray = matchDetails.split(",");
 
   //who is the winner
   var win = document.getElementsByClassName("win");
   if (matchArray[2] == "") {
-    win[x].innerHTML = "Draw";
+    win[i].innerHTML = "Draw";
   } else {
-    win[x].innerHTML = "Winner: " + matchArray[2];
+    win[i].innerHTML = "Winner: " + matchArray[2];
   }
 
   //who is 1p
   var player1 = document.getElementsByClassName("player1");
-  player1[x].style.color = matchArray[3];
-  player1[x].innerHTML = "1P: " + matchArray[0];
+  player1[i].style.color = matchArray[3];
+  player1[i].innerHTML = "1P: " + matchArray[0];
 
   //who is 2p
   var player2 = document.getElementsByClassName("player2");
-  player2[x].style.color = matchArray[4];
-  player2[x].innerHTML = "2P: " + matchArray[1];
+  player2[i].style.color = matchArray[4];
+  player2[i].innerHTML = "2P: " + matchArray[1];
 
   //match table
   var gameBox = document.getElementsByClassName("game-box");
-  for (var i = 0; i < 9; i++) {
-    if (matchArray[i + 5] == "X") {
-      gameBox[(x * 9 )+ i].style.color = matchArray[3];
-      gameBox[(x * 9 )+ i].innerHTML = matchArray[i + 5];
+  for (var j = 0; j < 9; j++) {
+    if (matchArray[j + 5] == "X") {
+      gameBox[(i * 9 )+ j].style.color = matchArray[3];
+      gameBox[(i * 9 )+ j].innerHTML = matchArray[j + 5];
     }
-    else if (matchArray[i + 5] == "O") {
-      gameBox[(x * 9 )+ i].style.color = matchArray[4];
-      gameBox[(x * 9 )+ i].innerHTML = matchArray[i + 5];
+    else if (matchArray[j + 5] == "O") {
+      gameBox[(i * 9 )+ j].style.color = matchArray[4];
+      gameBox[(i * 9 )+ j].innerHTML = matchArray[j + 5];
     }
   }
 
   // winning line
-  for (var i = 14; i < 17; i++) {
-    if (matchArray[i] != '') {
-      var temp = parseInt(matchArray[i]);
-      gameBox[(x * 9)+temp].style.backgroundColor = 'black';
+  for (var j = 14; j < 17; j++) {
+    if (matchArray[j] != '') {
+      var temp = parseInt(matchArray[j]);
+      gameBox[(i * 9)+temp].style.backgroundColor = 'black';
     }
   }
 
-  x++;
+  var endOfRecord = document.createElement('hr');
+  endOfRecord.style.marginTop = '100px';
+  endOfRecord.style.width = '450px';
+  container[0].appendChild(endOfRecord);
+
+  records--;
 }
 
 var newGame = document.createElement("button");
